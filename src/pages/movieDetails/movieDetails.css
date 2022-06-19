@@ -1,0 +1,37 @@
+.details-coin-text {
+    border: 2px solid gray;
+    border-radius: 30px;
+    padding: 0.5rem;
+    background-color: var(--bs-gray-500);
+    color: var(--bs-purple);
+}
+
+.details-content-section {
+    max-width: 60rem;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.actor-data-container {
+    text-align: center;
+}
+
+.actor-data-container img {
+    border-radius: 50%;
+    height: 160px;
+    margin: 0.5rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 160px;
+}
+
+.similar-movie-container {
+    text-align: center;
+    margin: 0 0.5rem;
+}
+
+.scrollable {
+    max-height: 30rem;
+    overflow: auto;
+}
+
