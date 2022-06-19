@@ -5,15 +5,16 @@ import { ITitleMovieData } from "../../services/apiTypes";
 import { StarIcon, PlusIcon } from "../../components/icons/icons";
 import Image from "../../components/image/image";
 import { Button } from "react-bootstrap";
+import Spinner from "../../components/spinner/spinner";
 import "./movieDetails.css";
 
 const MovieDetails = () => {
   const [movieData, setMovieData] = useState<ITitleMovieData>();
   let { id } = useParams();
-  const storedData = localStorage.getItem("visitedIds");
-  const ids = storedData ? JSON.parse(storedData) : [];
-  if (!ids.includes(id)) ids.push(id);
-  localStorage.setItem("visitedIds", JSON.stringify(ids));
+//   const storedData = localStorage.getItem("visitedIds");
+//   const ids = storedData ? JSON.parse(storedData) : [];
+//   if (!ids.includes(id)) ids.push(id);
+//   localStorage.setItem("visitedIds", JSON.stringify(ids));
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,10 +30,9 @@ const MovieDetails = () => {
     fetchData();
   }, []);
 
-  console.log(movieData);
-
   return (
     <div className="m-3">
+        {movieData ? <>
       <section className="details-content-section">
         <h1>{movieData?.fullTitle}</h1>
         <div
@@ -40,12 +40,12 @@ const MovieDetails = () => {
           style={{ marginBottom: "5rem" }}
         >
           <div className="ms-3">{`${movieData?.year} - ${movieData?.contentRating} - ${movieData?.runtimeStr}`}</div>
-          <div className="d-flex align-items-center">
+          {movieData?.imDbRating && <div className="d-flex align-items-center">
             <StarIcon color="yellow" width={32} height={32} />
             <span className="ms-2" style={{ fontSize: 24 }}>
               {movieData?.imDbRating}
             </span>
-          </div>
+          </div>}
           <Button variant="secondary">
             <PlusIcon />
             Watchlist
@@ -68,8 +68,8 @@ const MovieDetails = () => {
       </section>
       <section className="details-content-section mt-5">
         <div className="d-flex m-2">
-          {movieData?.genres.split(",").map((genre) => {
-            return <div className="details-coin-text me-2">{genre}</div>;
+          {movieData?.genres?.split(",")?.map((genre: string, index: number) => {
+            return <div key={genre + "-" + index} className="details-coin-text me-2">{genre}</div>;
           })}
         </div>
         <div className="d-flex justify-content-center m-3">
@@ -86,9 +86,9 @@ const MovieDetails = () => {
       <section className="details-content-section">Actors</section>
       <section className="details-content-section scrollable">
         <div className="d-flex">
-          {movieData?.fullCast.actors.map((actor) => {
+          {movieData?.fullCast?.actors?.map((actor: {image: string; name: string}, index: number) => {
             return (
-              <div className="actor-data-container">
+              <div key={actor.name + "-" + index} className="actor-data-container">
                 <Image src={actor.image} width={160} height="auto" />
                 <p>{actor.name}</p>
               </div>
@@ -99,9 +99,9 @@ const MovieDetails = () => {
       <section className="details-content-section">Similar Movies</section>
       <section className="details-content-section scrollable">
         <div className="d-flex">
-          {movieData?.similars.map((movie) => {
+          {movieData?.similars.map((movie: {image: string; title: string}, index: number) => {
             return (
-              <div className="similar-movie-container">
+              <div key={movie.title + "-" + index} className="similar-movie-container">
                 <Image src={movie.image} width={160} height="auto" />
                 <p>{movie.title}</p>
               </div>
@@ -109,6 +109,7 @@ const MovieDetails = () => {
           })}
         </div>
       </section>
+      </> : <Spinner fixed />}
     </div>
   );
 };
