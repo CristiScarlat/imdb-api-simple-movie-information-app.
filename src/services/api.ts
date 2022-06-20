@@ -22,6 +22,10 @@ const getMovieById = async (id: string) => {
     return await instance.get(`https://imdb-api.com/en/API/Title/${process.env.REACT_APP_IMDB_KEY}/${id}/FullActor,FullCast,Posters,Images,Trailer,Ratings`)
 }
 
-export { getComingSoonMovies, getTopMovies, getMostPopularMovies, getMovieById }
+const searchMoviesByExpression = async (expression: string) => {
+    return await instance.get(`https://imdb-api.com/en/API/SearchMovie/${process.env.REACT_APP_IMDB_KEY}/${expression}`)
+}
+
+export { getComingSoonMovies, getTopMovies, getMostPopularMovies, getMovieById, searchMoviesByExpression }
 
 

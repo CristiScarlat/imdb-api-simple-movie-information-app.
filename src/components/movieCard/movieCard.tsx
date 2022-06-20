@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { INewMovieDataDetails } from "../../services/apiTypes";
+import { INewMovieDataDetails, ISearchMovieResult } from "../../services/apiTypes";
 import { StarIcon } from '../icons/icons';
 import Image from '../image/image';
 import "./movieCard.css";
 
 interface ICardProps {
-  data: INewMovieDataDetails;
+  data: INewMovieDataDetails | ISearchMovieResult;
   width?: string;
   imDbRating?: string;
 }
