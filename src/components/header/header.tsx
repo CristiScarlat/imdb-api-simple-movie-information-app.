@@ -1,28 +1,23 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   Nav,
   Container,
-  Form,
   FormControl,
   Button,
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { StoreContext } from "../../context/store";
 
 const Header = () => {
 
   const [searchQuery, setSearchQuery] = useState<string>("");
-  //@ts-ignore
-  const { globalState, dispatch } = useContext(StoreContext);
   const navigate = useNavigate();
 
   const handleSearch = () => {
     if (searchQuery && searchQuery !== "") {
-      //@ts-ignore
-      dispatch({type: "SET_SEARCH_RESULTS", load: { search: searchQuery}});
+      const q = searchQuery;
       setSearchQuery("");
-      navigate("/");
+      navigate(`/search/${q}`);
     }
   };
 

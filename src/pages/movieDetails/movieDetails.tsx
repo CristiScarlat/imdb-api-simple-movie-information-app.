@@ -2,24 +2,20 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieById } from "../../services/api";
 import { ITitleMovieData } from "../../services/apiTypes";
-import { StarIcon, PlusIcon } from "../../components/icons/icons";
+import { StarIcon } from "../../components/icons/icons";
 import Image from "../../components/image/image";
-import { Button } from "react-bootstrap";
+import WatchlistButton from "../../components/watchlistButton/watchlistButton";
 import Spinner from "../../components/spinner/spinner";
 import "./movieDetails.css";
 
 const MovieDetails = () => {
   const [movieData, setMovieData] = useState<ITitleMovieData>();
   let { id } = useParams();
-//   const storedData = localStorage.getItem("visitedIds");
-//   const ids = storedData ? JSON.parse(storedData) : [];
-//   if (!ids.includes(id)) ids.push(id);
-//   localStorage.setItem("visitedIds", JSON.stringify(ids));
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (id) {
+        if (id && id !== "") {
           const res = await getMovieById(id);
           setMovieData(res.data);
         }
@@ -28,10 +24,10 @@ const MovieDetails = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
-    <div className="m-3">
+    <div style={{marginBottom: "5rem"}}>
         {movieData ? <>
       <section className="details-content-section">
         <h1>{movieData?.fullTitle}</h1>
@@ -46,10 +42,7 @@ const MovieDetails = () => {
               {movieData?.imDbRating}
             </span>
           </div>}
-          <Button variant="secondary">
-            <PlusIcon />
-            Watchlist
-          </Button>
+          <WatchlistButton />
         </div>
       </section>
       <section className="d-flex justify-content-center align-items-center flex-wrap details-content-section">
@@ -99,7 +92,7 @@ const MovieDetails = () => {
       <section className="details-content-section">Similar Movies</section>
       <section className="details-content-section scrollable">
         <div className="d-flex">
-          {movieData?.similars.map((movie: {image: string; title: string}, index: number) => {
+          {movieData?.similars?.map((movie: {image: string; title: string}, index: number) => {
             return (
               <div key={movie.title + "-" + index} className="similar-movie-container">
                 <Image src={movie.image} width={160} height="auto" />

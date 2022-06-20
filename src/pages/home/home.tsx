@@ -1,17 +1,12 @@
 import { useEffect, useState, useContext } from "react";
-import { Tabs, Tab, Button} from "react-bootstrap";
+import { Tabs, Tab } from "react-bootstrap";
 import {
   getComingSoonMovies,
   getTopMovies,
-  getMostPopularMovies,
-  searchMoviesByExpression,
+  getMostPopularMovies
 } from "../../services/api";
 import MovieCard from "../../components/movieCard/movieCard";
-import {
-  INewMovieDataDetails,
-  ISearchMovieData,
-  ISearchMovieResult,
-} from "../../services/apiTypes";
+import { INewMovieDataDetails } from "../../services/apiTypes";
 import Spinner from "../../components/spinner/spinner";
 import { StoreContext } from "../../context/store";
 import "./home.css";
@@ -20,11 +15,8 @@ const Home = () => {
   const [comingSoon, setComingSoon] = useState<INewMovieDataDetails[]>([]);
   const [topList, setTopList] = useState<INewMovieDataDetails[]>([]);
   const [popularList, setPopularList] = useState<INewMovieDataDetails[]>([]);
-  const [searchResults, setSearchResults] = useState<ISearchMovieData | null>(
-    null
-  );
+  
   const [loading, setLoading] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<string>("comingSoon");
 
   //@ts-ignore
   const { globalState, dispatch } = useContext(StoreContext);
@@ -74,19 +66,6 @@ const Home = () => {
     }
   };
 
-  const searchMovie = async (searchExpression: string) => {
-    try {
-      const res = await searchMoviesByExpression(searchExpression);
-      console.log(res);
-      if (res.status === 200) {
-        setSearchResults(res.data);
-        setActiveTab("search")
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     const getData = async () => {
       setLoading(true);
@@ -100,48 +79,10 @@ const Home = () => {
     getData();
   }, []);
 
-  useEffect(() => {
-    const fetchSearchData = async () => {
-      if (globalState.search && globalState.search !== "") {
-        setLoading(true);
-        await searchMovie(globalState.search);
-        dispatch({ type: "SET_SEARCH_RESULTS", load: { search: null } });
-        setLoading(false);
-      }
-    }
-    fetchSearchData();
-  }, [globalState.search]);
-
-  const handleActiveTab = (activeKey: any) => {
-    setActiveTab(activeKey);
-  }
-
-  const handleCloseSearchTab = () => {
-    setSearchResults(null);
-    setActiveTab("comingSoon");
-  }
-
-  console.log(loading)
-
   return (
     <div className="home-container">
       <section>
-        <Tabs defaultActiveKey="comingSoon" className="mb-3" activeKey={activeTab} onSelect={handleActiveTab}>
-          {searchResults && (
-            <Tab eventKey="search" title="Search Results">
-              <div className="d-flex justify-content-between p-3">
-                <h4>{`Search results for ${searchResults.expression}...`}</h4>
-                <Button onClick={handleCloseSearchTab} variant="secondary">
-                  Close Search Tab
-                  </Button>
-                  </div>
-              {searchResults?.results.length > 0 ? <div className="d-flex flex-column home-tab-content">
-                {searchResults?.results.map((movieObj: ISearchMovieResult) => (
-                  <MovieCard key={movieObj.id} data={movieObj} />
-                ))}
-              </div> : <div>{`There are no results for ${searchResults.expression}`}</div>}
-            </Tab>
-          )}
+        <Tabs defaultActiveKey="comingSoon" className="mb-3">
           <Tab eventKey="comingSoon" title="Coming Soon">
             {!loading && (
               <div className="d-flex flex-column home-tab-content">

@@ -277,10 +277,10 @@ export interface ITitleMovieData {
 
 export interface ISearchMovieResult extends INewMovieDataDetails{
   id: string;
-  resultType: string;
+  resultType?: string;
   image: string;
   title: string;
-  description: string;
+  description?: string;
 }
 
 export interface ISearchMovieData {

@@ -2,26 +2,35 @@ import React from "react";
 
 const StoreContext = React.createContext({});
 
+interface IWatchlistElem {
+  title: string,
+  id: string
+}
+
 interface IStateType {
-  search: string | null;
+  watchlist: IWatchlistElem[];
 }
 
 interface IActionType {
-  type: "SET_SEARCH_RESULTS";
-  load: any;
+  type: "SET_WATCHLIST";
+  payload: {
+    watchlist: any;
+  };
 }
 
 const initialState: IStateType = {
-  search: null,
+  watchlist: [],
 };
 
 const StoreProvider = (props: any) => {
   const [globalState, dispatch] = React.useReducer(
     (state: IStateType, action: IActionType) => {
+      console.log({state, action})
       switch (action.type) {
-        case "SET_SEARCH_RESULTS":
-          console.log(action)
-          return { ...state, search: action.load.search };
+        case "SET_WATCHLIST":
+          const found = state.watchlist.find((movie: IWatchlistElem) => movie.id === action.payload.watchlist.id);
+          if(found)return {...state}
+          return { ...state, watchlist: [...state.watchlist, action.payload.watchlist] };
         default:
           return state;
       }
