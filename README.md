@@ -53,4 +53,4 @@ The watchlist window, located in the bottom-right corner of the page is:
 
 (Note: The watchlist does not need to persist through page refreshes, but should persist through clicking into each movie.)
 
-![Screenshot with populated watchlist](/screenshots/watchlist.png?raw=true)
+![Screenshot with populated watchlist](/screenshots/populated-watchlist.png?raw=true)
