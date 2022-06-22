@@ -39,7 +39,7 @@ const PaginatedList = ({
         <div className={lisPaginationClassName}>
           <Pagination style={{ margin: 0 }}>
             <Pagination.Prev onClick={handlePrevPage} />
-            <Pagination.Item>{`${pageNo + 1}/${total}`}</Pagination.Item>
+            <Pagination.Item>{`${pageNo + 1}/${total/pageSize}`}</Pagination.Item>
             <Pagination.Next onClick={handleNextPage} />
           </Pagination>
         </div>
