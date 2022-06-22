@@ -6,11 +6,10 @@ import MovieDetails from "./pages/movieDetails/movieDetails";
 import SearchResults from "./pages/searchResults/searchResults";
 import Watchlist from "./components/watchlist/watchlist";
 import Header from './components/header/header';
-import "./App.css";
 
 export function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
       <Header/>
         <Routes>

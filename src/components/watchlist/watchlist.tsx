@@ -26,7 +26,7 @@ const Watchlist = () => {
   return (
     <div className="watchlist-container">
       <div className="watchlist-header">
-        <span>Watchlist</span>
+        <div>Watchlist<span className="ms-2">{globalState.watchlist.length}</span></div>
         <button onClick={handleToggleWatchlist}>
           <ArrowIcon
             color="black"
@@ -46,26 +46,6 @@ const Watchlist = () => {
             <p>You should add some movies.</p>
           </div>
         ) : (
-          // <ol style={{ margin: 0 }}>
-          //   {globalState.watchlist.map((wl: any) => {
-          //     return (
-          //       <li>
-          //         <Link
-          //           to={`/details/${wl.id}`}
-          //           className="movie-card-title m-2"
-          //         >
-          //           {wl.title}
-          //         </Link>
-          //         <button
-          //           className="whatchlist-minus-button"
-          //           onClick={() => handleRemoveFromWatchlist(wl)}
-          //         >
-          //           <TrashIcon color="currentColor" />
-          //         </button>
-          //       </li>
-          //     );
-          //   })}
-          // </ol>
           <Table>
             <thead>
               <tr>
@@ -77,7 +57,7 @@ const Watchlist = () => {
             <tbody>
               {globalState.watchlist.map((wl: any, index: number) => {
                 return (
-                  <tr>
+                  <tr key={wl.id}>
                     <td>{index + 1}</td>
                     <td>
                       <Link

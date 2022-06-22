@@ -28,7 +28,6 @@ const initialState: IStateType = {
 const StoreProvider = (props: any) => {
   const [globalState, dispatch] = React.useReducer(
     (state: IStateType, action: IActionType) => {
-      console.log({ state, action });
       switch (action.type) {
         case "ADD_TO_WATCHLIST":
           const found = state.watchlist.find(

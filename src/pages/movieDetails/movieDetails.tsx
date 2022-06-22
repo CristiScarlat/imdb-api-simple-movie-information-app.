@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { StoreContext } from "../../context/store";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getMovieById } from "../../services/api";
 import { ITitleMovieData } from "../../services/apiTypes";
 import { StarIcon } from "../../components/icons/icons";
@@ -93,7 +93,7 @@ const MovieDetails = () => {
           <section className="d-flex justify-content-center align-items-center flex-wrap details-content-section">
             <div className="me-5">
               {movieData?.trailer?.thumbnailUrl && (
-                <Image src={movieData.image} width="auto" height={360} />
+                <Image src={movieData.image} width="auto" height={360} phantomHeight={360} phantomWidth={240}/>
               )}
             </div>
             {movieData?.trailer?.linkEmbed && (
@@ -103,6 +103,7 @@ const MovieDetails = () => {
                 width="640"
                 height="360"
                 allowFullScreen
+                title={movieData?.trailer?.linkEmbed}
               ></iframe>
             )}
           </section>
@@ -156,7 +157,7 @@ const MovieDetails = () => {
                   return (
                     <div
                       key={movie.title + "-" + index}
-                      className="similar-movie-container"
+                      className="d-flex flex-column align-items-center similar-movie-container"
                     >
                       <Image src={movie.image} width={160} height="auto" />
                       <button
@@ -183,7 +184,7 @@ const MovieDetails = () => {
                   return (
                     <div
                       key={movie.title + "-" + index}
-                      className="similar-movie-container"
+                      className="d-flex flex-column align-items-center similar-movie-container"
                     >
                       <Image src={movie.image} width={160} height="auto" />
                       <button
