@@ -32,20 +32,24 @@ By scrolling down the page, user will found a list of actors with picture and fu
 ![Screenshot of movie page](/screenshots/moviepage2.png?raw=true)
 
 And by scrolling down more, user can find list of similar movies, with picture and title, and list of already visited movies.
-All this visited and similar movies titles ar link to navigate to the movie details.
+All this visited and similar movie titles are links to navigate to the movie details.
 
 ![Screenshot of movie page](/screenshots/moviepage3.png?raw=true)
 
 ### Search results
-Not every movie is reachable from the "Upcoming" list used on our home page!  In fact, only a very small number of movies can be found that way.  Add a search bar to the app, to allow users to search for movies.  This should take them to page with the results of their search, where each movie behaves similarly to the behavior described on the [home page].
+On the header of the app, there is a search input and button, the user can search movies by typing an expression and clicking the search button.This action will open a new page with the list of all movies found by the api.
 
-![Screenshot of search](/screenshots/search.png?raw=true)
+![Screenshot of search](/screenshots/search-input.png?raw=true)
+
+Every card in the search results list have a watchlist button to be able to add the found movie to watchlist.
+
+![Screenshot of search](/screenshots/search-results.png?raw=true)
 
 ### Watchlist
-When a user sees a movie they'd like to watch, we don't want them reaching for a notepad!  Add a watchlist feature.  This watchlist should:
-- be present on every page of the app
-- be easy to add movies to and remove movies from
-- be collapsible, and show the number of movies on the list when collapsed
+The watchlist window, located in the bottom-right corner of the page is:
+- present on every page of the app
+- has a remove movie button from list(add can be done from watchlist button on cards and movie details page)
+- collapsible, and show the number of movies on the list when collapsed
 
 (Note: The watchlist does not need to persist through page refreshes, but should persist through clicking into each movie.)
 

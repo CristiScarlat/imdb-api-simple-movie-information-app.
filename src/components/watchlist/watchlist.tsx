@@ -27,7 +27,7 @@ const Watchlist = () => {
     <div className="watchlist-container">
       <div className="watchlist-header">
         <div>
-          Watchlist<span className="ms-2">{globalState.watchlist.length}</span>
+          Watchlist{!showWatchlist && <span className="ms-2">{globalState.watchlist.length}</span>}
         </div>
         <button onClick={handleToggleWatchlist}>
           <ArrowIcon
