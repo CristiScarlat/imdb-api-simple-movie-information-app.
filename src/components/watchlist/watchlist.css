@@ -33,3 +33,14 @@
     max-height: 0px;
     overflow: hidden;
 }
+
+.whatchlist-minus-button {
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.whatchlist-minus-button:hover {
+    color: #0d6efd;
+}

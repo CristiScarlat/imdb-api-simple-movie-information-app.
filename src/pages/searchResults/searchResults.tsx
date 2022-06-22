@@ -14,7 +14,6 @@ const SearchResults = () => {
   const searchMovie = async (searchExpression: string) => {
     try {
       const res = await searchMoviesByExpression(searchExpression);
-      console.log(res);
       if (res.status === 200) {
         setSearchResults(res.data);
       }
@@ -34,7 +33,6 @@ const SearchResults = () => {
     fetchSearchData();
   }, [searchQuery]);
 
-  console.log(searchResults)
   return (<div className="m-3">
      {!loading ? (
               <div className="d-flex flex-column search-list-container">

@@ -7,7 +7,7 @@
 }
 
 .details-content-section {
-    max-width: 60rem;
+    max-width: 70rem;
     margin: auto;
     margin-top: 2rem;
 }
@@ -33,5 +33,12 @@
 .scrollable {
     max-height: 30rem;
     overflow: auto;
+}
+
+.details-custom-link-button {
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
 }
 

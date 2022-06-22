@@ -275,7 +275,7 @@ export interface ITitleMovieData {
   errorMessage: string;
 }
 
-export interface ISearchMovieResult extends INewMovieDataDetails{
+export interface ISearchMovieResult extends INewMovieDataDetails {
   id: string;
   resultType?: string;
   image: string;

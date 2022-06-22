@@ -1,17 +1,26 @@
 import React, { useState, useContext } from "react";
 import { StoreContext } from "../../context/store";
 import { Link } from "react-router-dom";
-import { ArrowIcon } from "../icons/icons";
+import { ArrowIcon, TrashIcon } from "../icons/icons";
+import { Table } from "react-bootstrap";
 import "./watchlist.css";
 
 const Watchlist = () => {
-    const[showWatchlist, setShowWatchlist] = useState(true);
+  const [showWatchlist, setShowWatchlist] = useState(true);
   //@ts-ignore
   const { globalState, dispatch } = useContext(StoreContext);
 
-  console.log(globalState.watchlist);
   const handleToggleWatchlist = () => {
-    setShowWatchlist(!showWatchlist)
+    setShowWatchlist(!showWatchlist);
+  };
+
+  const handleRemoveFromWatchlist = (movieToRemove: any) => {
+    dispatch({
+      type: "REMOVE_FROM_WATCHLIST",
+      payload: {
+        watchlist: movieToRemove,
+      },
+    });
   };
 
   return (
@@ -19,26 +28,79 @@ const Watchlist = () => {
       <div className="watchlist-header">
         <span>Watchlist</span>
         <button onClick={handleToggleWatchlist}>
-          <ArrowIcon color="black" style={{transform: showWatchlist ? 'rotate(180deg)' : 'rotate(0deg)'}}/>
+          <ArrowIcon
+            color="black"
+            style={{
+              transform: showWatchlist ? "rotate(0deg)" : "rotate(180deg)",
+            }}
+          />
         </button>
       </div>
-      <div className="watchlist-list-container" style={{maxHeight: showWatchlist ? 0 : 500}}>
-        {globalState.watchlist.length === 0 ? <div>
+      <div
+        className="watchlist-list-container"
+        style={{ maxHeight: showWatchlist ? 500 : 0 }}
+      >
+        {globalState.watchlist.length === 0 ? (
+          <div>
             <p>Your watchlist is empty.</p>
             <p>You should add some movies.</p>
-            </div> 
-            : 
-        <ol style={{ margin: 0 }}>
-          {globalState.watchlist.map((wl: any) => {
-            return (
-              <li>
-                <Link to={`/details/${wl.id}`} className="movie-card-title m-2">
-                  {wl.title}
-                </Link>
-              </li>
-            );
-          })}
-        </ol>}
+          </div>
+        ) : (
+          // <ol style={{ margin: 0 }}>
+          //   {globalState.watchlist.map((wl: any) => {
+          //     return (
+          //       <li>
+          //         <Link
+          //           to={`/details/${wl.id}`}
+          //           className="movie-card-title m-2"
+          //         >
+          //           {wl.title}
+          //         </Link>
+          //         <button
+          //           className="whatchlist-minus-button"
+          //           onClick={() => handleRemoveFromWatchlist(wl)}
+          //         >
+          //           <TrashIcon color="currentColor" />
+          //         </button>
+          //       </li>
+          //     );
+          //   })}
+          // </ol>
+          <Table>
+            <thead>
+              <tr>
+                <th>Pos.</th>
+                <th>Movie</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {globalState.watchlist.map((wl: any, index: number) => {
+                return (
+                  <tr>
+                    <td>{index + 1}</td>
+                    <td>
+                      <Link
+                        to={`/details/${wl.id}`}
+                        className="movie-card-title m-2"
+                      >
+                        {wl.title}
+                      </Link>
+                    </td>
+                    <td>
+                      <button
+                        className="whatchlist-minus-button"
+                        onClick={() => handleRemoveFromWatchlist(wl)}
+                      >
+                        <TrashIcon color="currentColor" />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        )}
       </div>
     </div>
   );

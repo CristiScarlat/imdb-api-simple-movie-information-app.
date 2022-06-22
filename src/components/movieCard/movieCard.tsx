@@ -36,7 +36,7 @@ const MovieCard: React.FC<ICardProps> = ({
 
   const handleAddToWatchList = () => {
     dispatch({
-      type: "SET_WATCHLIST",
+      type: "ADD_TO_WATCHLIST",
       payload: {
         watchlist: {
           id,
