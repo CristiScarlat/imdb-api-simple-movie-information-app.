@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
-import { StoreContext } from "../../context/store";
-import { Link } from "react-router-dom";
-import { ArrowIcon, TrashIcon } from "../icons/icons";
-import { Table } from "react-bootstrap";
-import "./watchlist.css";
+import React, { useState, useContext } from 'react';
+import { StoreContext } from '../../context/store';
+import { Link } from 'react-router-dom';
+import { ArrowIcon, TrashIcon } from '../icons/icons';
+import { Table } from 'react-bootstrap';
+import './watchlist.css';
 
 const Watchlist = () => {
   const [showWatchlist, setShowWatchlist] = useState(true);
@@ -16,22 +16,24 @@ const Watchlist = () => {
 
   const handleRemoveFromWatchlist = (movieToRemove: any) => {
     dispatch({
-      type: "REMOVE_FROM_WATCHLIST",
+      type: 'REMOVE_FROM_WATCHLIST',
       payload: {
-        watchlist: movieToRemove,
-      },
+        watchlist: movieToRemove
+      }
     });
   };
 
   return (
     <div className="watchlist-container">
       <div className="watchlist-header">
-        <div>Watchlist<span className="ms-2">{globalState.watchlist.length}</span></div>
+        <div>
+          Watchlist<span className="ms-2">{globalState.watchlist.length}</span>
+        </div>
         <button onClick={handleToggleWatchlist}>
           <ArrowIcon
             color="black"
             style={{
-              transform: showWatchlist ? "rotate(0deg)" : "rotate(180deg)",
+              transform: showWatchlist ? 'rotate(0deg)' : 'rotate(180deg)'
             }}
           />
         </button>

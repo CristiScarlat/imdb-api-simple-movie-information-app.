@@ -1,4 +1,4 @@
-export const StarIcon = ({ width = 24, height = 24, color = "white" }) => {
+export const StarIcon = ({ width = 24, height = 24, color = 'white' }) => {
   return (
     <svg
       width={width}
@@ -14,7 +14,7 @@ export const StarIcon = ({ width = 24, height = 24, color = "white" }) => {
   );
 };
 
-export const PlusIcon = ({ width = 24, height = 24, color = "white" }) => {
+export const PlusIcon = ({ width = 24, height = 24, color = 'white' }) => {
   return (
     <svg
       width={width}
@@ -36,8 +36,8 @@ export const PlusIcon = ({ width = 24, height = 24, color = "white" }) => {
 export const ArrowIcon = ({
   width = 24,
   height = 24,
-  color = "white",
-  style,
+  color = 'white',
+  style
 }) => {
   return (
     <svg
@@ -56,11 +56,7 @@ export const ArrowIcon = ({
   );
 };
 
-export const TrashIcon = ({
-  width = 24,
-  height = 24,
-  color = "white"
-}) => {
+export const TrashIcon = ({ width = 24, height = 24, color = 'white' }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

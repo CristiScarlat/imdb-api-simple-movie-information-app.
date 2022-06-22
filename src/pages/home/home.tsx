@@ -1,16 +1,16 @@
-import { useEffect, useState, useContext } from "react";
-import { Tabs, Tab } from "react-bootstrap";
+import { useEffect, useState, useContext } from 'react';
+import { Tabs, Tab } from 'react-bootstrap';
 import {
   getComingSoonMovies,
   getTopMovies,
-  getMostPopularMovies,
-} from "../../services/api";
-import MovieCard from "../../components/movieCard/movieCard";
-import { INewMovieDataDetails } from "../../services/apiTypes";
-import Spinner from "../../components/spinner/spinner";
-import PaginatedList from "../../components/paginatedList/paginatedList";
-import { StoreContext } from "../../context/store";
-import "./home.css";
+  getMostPopularMovies
+} from '../../services/api';
+import MovieCard from '../../components/movieCard/movieCard';
+import { INewMovieDataDetails } from '../../services/apiTypes';
+import Spinner from '../../components/spinner/spinner';
+import PaginatedList from '../../components/paginatedList/paginatedList';
+import { StoreContext } from '../../context/store';
+import './home.css';
 
 const Home = () => {
   const [comingSoon, setComingSoon] = useState<INewMovieDataDetails[]>([]);
@@ -27,7 +27,7 @@ const Home = () => {
       const res = await getComingSoonMovies();
       if (
         res.status === 200 &&
-        res?.data?.errorMessage === "" &&
+        res?.data?.errorMessage === '' &&
         res?.data?.items
       ) {
         setComingSoon(res.data.items);
@@ -42,7 +42,7 @@ const Home = () => {
       const res = await getTopMovies();
       if (
         res.status === 200 &&
-        res?.data?.errorMessage === "" &&
+        res?.data?.errorMessage === '' &&
         res?.data?.items
       ) {
         setTopList(res.data.items);
@@ -57,7 +57,7 @@ const Home = () => {
       const res = await getMostPopularMovies();
       if (
         res.status === 200 &&
-        res?.data?.errorMessage === "" &&
+        res?.data?.errorMessage === '' &&
         res?.data?.items
       ) {
         setPopularList(res.data.items);
@@ -73,7 +73,7 @@ const Home = () => {
       await Promise.all([
         fetchComingSoonList(),
         fetchTopList(),
-        fetchPopularList(),
+        fetchPopularList()
       ]);
       setLoading(false);
     };

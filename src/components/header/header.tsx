@@ -1,35 +1,28 @@
-import React, { useState } from "react";
-import {
-  Navbar,
-  Nav,
-  Container,
-  FormControl,
-  Button,
-} from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Navbar, Nav, Container, FormControl, Button } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
-
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    if (searchQuery && searchQuery !== "") {
+    if (searchQuery && searchQuery !== '') {
       const q = searchQuery;
-      setSearchQuery("");
+      setSearchQuery('');
       navigate(`/search/${q}`);
     }
   };
 
   const handleOnChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value)
-  } 
+    setSearchQuery(e.target.value);
+  };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if(e.key === "Enter"){
-      handleSearch()
+    if (e.key === 'Enter') {
+      handleSearch();
     }
-  }
+  };
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">

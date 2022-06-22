@@ -1,46 +1,46 @@
 .watchlist-container {
-    position: fixed;
-    bottom: 5px;
-    right: 1rem;
-    border: 1px solid gray;
-    border-radius: 5px;
-    min-width: 15rem;
+  position: fixed;
+  bottom: 5px;
+  right: 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  min-width: 15rem;
 }
 
-.watchlist-list-container p{
-    margin: 0;
+.watchlist-list-container p {
+  margin: 0;
 }
 
 .watchlist-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--bs-gray-500);
-    color: black;
-    font-weight: bold;
-    padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bs-gray-500);
+  color: black;
+  font-weight: bold;
+  padding: 0.5rem;
 }
 
-.watchlist-header>button{
-    background: none;
-    border: none;
-    outline: none;
+.watchlist-header > button {
+  background: none;
+  border: none;
+  outline: none;
 }
 
 .watchlist-list-container {
-    background-color: var(--bs-green);
-    transition: max-height 0.5s ease-in-out 0s;
-    max-height: 0px;
-    overflow: hidden;
+  background-color: var(--bs-green);
+  transition: max-height 0.5s ease-in-out 0s;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .whatchlist-minus-button {
-    background: none;
-    border: none;
-    outline: none;
-    color: white;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
 }
 
 .whatchlist-minus-button:hover {
-    color: #0d6efd;
+  color: #0d6efd;
 }

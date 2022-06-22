@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { StoreContext } from "../../context/store";
-import { Link } from "react-router-dom";
-import { ISearchMovieResult } from "../../services/apiTypes";
-import { StarIcon } from "../icons/icons";
-import Image from "../image/image";
-import WatchlistButton from "../watchlistButton/watchlistButton";
-import "./movieCard.css";
+import React, { useContext } from 'react';
+import { StoreContext } from '../../context/store';
+import { Link } from 'react-router-dom';
+import { ISearchMovieResult } from '../../services/apiTypes';
+import { StarIcon } from '../icons/icons';
+import Image from '../image/image';
+import WatchlistButton from '../watchlistButton/watchlistButton';
+import './movieCard.css';
 
 interface ICardProps {
   data: ISearchMovieResult;
@@ -26,25 +26,25 @@ const MovieCard: React.FC<ICardProps> = ({
     plot,
     description,
     directors,
-    stars,
+    stars
   },
-  width = "100%",
-  imDbRating,
+  width = '100%',
+  imDbRating
 }) => {
   //@ts-ignore
   const { globalState, dispatch } = useContext(StoreContext);
 
   const handleAddToWatchList = () => {
     dispatch({
-      type: "ADD_TO_WATCHLIST",
+      type: 'ADD_TO_WATCHLIST',
       payload: {
         watchlist: {
           id,
           title: fullTitle || title,
           genreList,
           contentRating
-        },
-      },
+        }
+      }
     });
   };
 
@@ -76,7 +76,7 @@ const MovieCard: React.FC<ICardProps> = ({
           )}
           {runtimeMins && <div>{runtimeMins} min -</div>}
           <div>
-            {genreList ? genreList.map((genre) => genre.value).join(" | ") : ""}
+            {genreList ? genreList.map((genre) => genre.value).join(' | ') : ''}
           </div>
         </div>
         {metacriticRating && (

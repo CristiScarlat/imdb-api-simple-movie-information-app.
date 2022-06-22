@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const StoreContext = React.createContext({});
 
@@ -13,7 +13,7 @@ interface IStateType {
 }
 
 interface IActionType {
-  type: "ADD_TO_WATCHLIST" | "REMOVE_FROM_WATCHLIST" | "ADD_TO_VISITED_LIST";
+  type: 'ADD_TO_WATCHLIST' | 'REMOVE_FROM_WATCHLIST' | 'ADD_TO_VISITED_LIST';
   payload: {
     watchlist: IWatchlistElem;
     visitedList: IWatchlistElem;
@@ -22,39 +22,40 @@ interface IActionType {
 
 const initialState: IStateType = {
   watchlist: [],
-  visitedList: [],
+  visitedList: []
 };
 
 const StoreProvider = (props: any) => {
   const [globalState, dispatch] = React.useReducer(
     (state: IStateType, action: IActionType) => {
       switch (action.type) {
-        case "ADD_TO_WATCHLIST":
+        case 'ADD_TO_WATCHLIST':
           const found = state.watchlist.find(
             (movie: IWatchlistElem) => movie.id === action.payload.watchlist.id
           );
           if (found) return { ...state };
           return {
             ...state,
-            watchlist: [...state.watchlist, action.payload.watchlist],
+            watchlist: [...state.watchlist, action.payload.watchlist]
           };
-        case "REMOVE_FROM_WATCHLIST":
+        case 'REMOVE_FROM_WATCHLIST':
           const newWatchlist = state.watchlist.filter(
             (movie: IWatchlistElem) => movie.id !== action.payload.watchlist.id
           );
 
           return {
             ...state,
-            watchlist: newWatchlist,
+            watchlist: newWatchlist
           };
-        case "ADD_TO_VISITED_LIST":
+        case 'ADD_TO_VISITED_LIST':
           const foundInLIst = state.visitedList.find(
-            (movie: IWatchlistElem) => movie.id === action.payload.visitedList.id
+            (movie: IWatchlistElem) =>
+              movie.id === action.payload.visitedList.id
           );
           if (foundInLIst) return { ...state };
           return {
             ...state,
-            visitedList: [...state.visitedList, action.payload.visitedList],
+            visitedList: [...state.visitedList, action.payload.visitedList]
           };
         default:
           return state;

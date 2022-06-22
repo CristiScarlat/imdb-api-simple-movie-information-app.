@@ -1,33 +1,32 @@
 .nav-tabs {
-    margin-top: 2rem;
-    background-color: black;
-    border-bottom-color: rgba(128, 128, 128, 0.156);
+  margin-top: 2rem;
+  background-color: black;
+  border-bottom-color: rgba(128, 128, 128, 0.156);
 }
 
-.nav-tabs li>button {
-    color: gray;
+.nav-tabs li > button {
+  color: gray;
 }
 
 .nav-tabs .nav-link.active {
-    background-color: var(--bs-gray-800);
-    color: whitesmoke;
-    border-left: none;
-    border-right: none;
-    border-top-color: var(--bs-yellow);
-    border-bottom-color: var(--bs-yellow);
+  background-color: var(--bs-gray-800);
+  color: whitesmoke;
+  border-left: none;
+  border-right: none;
+  border-top-color: var(--bs-yellow);
+  border-bottom-color: var(--bs-yellow);
 }
 
 .nav-tabs .nav-link:hover {
-    color: whitesmoke;
-    border-left: none;
-    border-right: none;
-    border-top-color: var(--bs-yellow);
-    border-bottom-color: var(--bs-yellow);
+  color: whitesmoke;
+  border-left: none;
+  border-right: none;
+  border-top-color: var(--bs-yellow);
+  border-bottom-color: var(--bs-yellow);
 }
 
 .home-tab-content {
-    gap: 1rem;
-    height: 80vh;
-    overflow: auto;
+  gap: 1rem;
+  height: 80vh;
+  overflow: auto;
 }
-
