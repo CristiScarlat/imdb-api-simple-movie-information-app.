@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { StoreContext } from '../../context/store';
 import { Link } from 'react-router-dom';
 import { ArrowIcon, TrashIcon } from '../icons/icons';
