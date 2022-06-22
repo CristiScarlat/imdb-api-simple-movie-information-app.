@@ -10,9 +10,9 @@ On every card there is a whatchlist button that will add that moview to the what
 
 ![Screenshot of homepage](/screenshots/homepage.png?raw=true)
 
-On the seconds tab the user can browse throuth a list of 250 movies rated as the top 250 mmovies.
-The list is paginated and every page displays 10 movies, the use has to navigate through pages by clicking the next and previous 
-buttons on the bottom of the page. On this page navigation control there is also displayed the number of movies and the current page.
+On the seconds tab the user can browse throuth a list of 250 movies rated as the top movies.
+The list is paginated and every page displays 10 movies, the user has to navigate through pages by clicking the next and previous 
+buttons on the bottom of the page. On this page-navigation control there is also displayed the number of movies and the current page.
 Again, all cards have a watchlist button for adding any movie to the watchlist table
 
 ![Screenshot of homepage](/screenshots/homepage-top250.png?raw=true)
@@ -22,9 +22,19 @@ The same behavior we have on the third tab, the most popular movies list.
 ![Screenshot of homepage](/screenshots/homepage-mostPopular.png?raw=true)
 
 ### Movie page
-The movie display page will show more details about the movie we've selected.  On this page, we should be able to see and navigate to other similar movies.  This page should have much more detail, including the full plot of the movie, and a list of actors (not navigable).
+By clicking the title of the movie in any card on the homepage (on-hover the title turns blue), the user is redirected to a new page,
+the movie details page, where the trailer video of the movie can be played, and information about the genres, description, directors, writers and stras can be found.
 
-![Screenshot of movie page](/screenshots/moviepage.png?raw=true)
+![Screenshot of movie page](/screenshots/moviepage1.png?raw=true)
+
+By scrolling down the page, user will found a list of actors with picture and full name, the list is scrollable on the horizontal direction.
+
+![Screenshot of movie page](/screenshots/moviepage2.png?raw=true)
+
+And by scrolling down more, user can find list of similar movies, with picture and title, and list of already visited movies.
+All this visited and similar movies titles ar link to navigate to the movie details.
+
+![Screenshot of movie page](/screenshots/moviepage3.png?raw=true)
 
 ### Search results
 Not every movie is reachable from the "Upcoming" list used on our home page!  In fact, only a very small number of movies can be found that way.  Add a search bar to the app, to allow users to search for movies.  This should take them to page with the results of their search, where each movie behaves similarly to the behavior described on the [home page].
