@@ -1,23 +1,12 @@
-# Welcome to RegalVoice Movie Database!
-
-
-## Getting started
-Welcome to RegalVoice's front-end coding challenge!
-
-Please set aside 6-8 hours to complete this challenge.  You should have been provide with an API key to use for this challenge.  If you do not have it, please contact us immediately.
-When you're ready to get started, fork this repository.
-
-## Brief
-We're going to build an awesome movie database web app!
-Using [IMDb's API](https://imdb-api.com/api), we will build a simple to use web app to view movie information and track which movies we'd like to see, as well as search for movies.
-
-*Note: All screenshots included here are purely for demonstrating required information, and should not be considered design specs.  You may present this information using any reasonable UX.  While UX design is not a primary consideration in this challenge, please attempt to make it as presentable as possible.*
-
-## Technical Specifications
-Our app will consist of 3 main pages:
 
 ### Home page
-The home page of our database should show a list of all upcoming movies. Each movie in the list should show its title, rating, runtime, and year of release. Each should be able to be clicked into, taking the user to the [movie page].  Notice the "Watchlist" tab at the bottom.  We'll address that in a later specification.
+The home page includes 3 tabs:
+- comming soon movies information cards
+- top 250 movies information cards
+- most popular movies information cards
+
+In the right-bottom corner of the page there is the watchlist,and this list is available all over the app.
+On every card there is a whatchlist button that will add that moview to the whatshlist and in the watchlist window every movie title is clickable and can navigate to the movie details page. Also, every title in the watchlist has an delete button(trash icon) for deleteing any of the watchlist items.
 
 ![Screenshot of homepage](/screenshots/homepage.png?raw=true)
 
