@@ -10,6 +10,17 @@ On every card there is a whatchlist button that will add that moview to the what
 
 ![Screenshot of homepage](/screenshots/homepage.png?raw=true)
 
+On the seconds tab the user can browse throuth a list of 250 movies rated as the top 250 mmovies.
+The list is paginated and every page displays 10 movies, the use has to navigate through pages by clicking the next and previous 
+buttons on the bottom of the page. On this page navigation control there is also displayed the number of movies and the current page.
+Again, all cards have a watchlist button for adding any movie to the watchlist table
+
+![Screenshot of homepage](/screenshots/homepage-top250.png?raw=true)
+
+The same behavior we have on the third tab, the most popular movies list.
+
+![Screenshot of homepage](/screenshots/homepage-mostPopular.png?raw=true)
+
 ### Movie page
 The movie display page will show more details about the movie we've selected.  On this page, we should be able to see and navigate to other similar movies.  This page should have much more detail, including the full plot of the movie, and a list of actors (not navigable).
 
