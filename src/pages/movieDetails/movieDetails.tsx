@@ -71,14 +71,7 @@ const MovieDetails = () => {
         <>
           <section className="details-content-section">
             <h1>{movieData?.fullTitle}</h1>
-            <div
-              className="d-flex align-items-center justify-content-between"
-              style={{ marginBottom: '5rem' }}
-            >
-              <div className="ms-3">{`${movieData?.year} ${
-                movieData?.contentRating ? movieData?.contentRating : ''
-              } ${movieData?.runtimeStr ? movieData?.runtimeStr : ''}`}</div>
-              {movieData?.imDbRating && (
+            {movieData?.imDbRating && (
                 <div className="d-flex align-items-center">
                   <StarIcon color="yellow" width={32} height={32} />
                   <span className="ms-2" style={{ fontSize: 24 }}>
@@ -86,6 +79,15 @@ const MovieDetails = () => {
                   </span>
                 </div>
               )}
+            <div
+              className="d-flex align-items-center justify-content-between"
+              style={{ marginBottom: '5rem' }}
+            >
+              <div className="ms-3">{`${movieData?.year} ${
+                movieData?.contentRating ? movieData?.contentRating : ''
+              } ${movieData?.runtimeStr ? movieData?.runtimeStr : ''}`}
+              </div>
+              
               <WatchlistButton onClick={handleAddToWatchList} />
             </div>
           </section>
